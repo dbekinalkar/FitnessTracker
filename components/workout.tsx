@@ -112,7 +112,7 @@ const WorkoutLog = () => {
                     ))}
                 </div>
             ) : (
-                <p>No workouts logged yet.</p>
+                <p className="text-center">No workouts logged yet.</p>
             )}
             <Pagination />
         </div>
