@@ -76,8 +76,8 @@ const WorkoutLog = () => {
     return (
         <div className="px-5 py-5">
             <div className="flex flex-wrap justify-center space-x-5">
-                <div className="mr-5">
-                    <h2 className="text-2xl font-bold mb-5">Add a Workout</h2>
+                <div>
+                    <h2 className="text-center text-2xl font-bold mb-5">Add a Workout</h2>
                     <form onSubmit={addWorkout} className="flex space-x-2 mb-5">
                         <input
                             type="date"
@@ -100,14 +100,14 @@ const WorkoutLog = () => {
                     </form>
                 </div>
 
-                <div>
-                    <h2 className="text-2xl font-bold my-5">Your Workout Calendar</h2>
+                <div >
+                    <h2 className="text-center text-2xl font-bold my-5">Your Workout Calendar</h2>
                     <Calendar tileClassName={tileClassName} key={workouts.length} />
                 </div>
             </div>
 
             <h2 className="text-2xl font-bold my-5 text-center">Your Workouts</h2>
-            <Pagination />
+            {workouts.length > 0 && <Pagination />}
             {displayedWorkouts.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-4">
                     {displayedWorkouts.map((workout, index) => (
@@ -119,9 +119,9 @@ const WorkoutLog = () => {
                     ))}
                 </div>
             ) : (
-                <p>No workouts logged yet.</p>
+                <p className="text-center">No workouts logged yet.</p>
             )}
-            <Pagination />
+            {workouts.length > 0 && <Pagination />}
         </div>
     );
 };

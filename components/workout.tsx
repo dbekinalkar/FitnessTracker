@@ -100,7 +100,7 @@ const WorkoutLog = () => {
             </div>
 
             <h2 className="text-2xl font-bold my-5 text-center">Your Workouts</h2>
-            <Pagination />
+            {totalPages > 1 && <Pagination />}
             {displayedWorkouts.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 m-4 justify-items-center">
                     {displayedWorkouts.map((workout, index) => (
@@ -112,9 +112,11 @@ const WorkoutLog = () => {
                     ))}
                 </div>
             ) : (
-                <p className="text-center">No workouts logged yet.</p>
+                <div className="flex items-center justify-center h-screen text-center">
+                    <p>No workouts logged yet.</p>
+                </div>
             )}
-            <Pagination />
+            {totalPages > 1 && <Pagination />}
         </div>
     );
 };
